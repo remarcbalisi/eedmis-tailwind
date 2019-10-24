@@ -29,5 +29,9 @@ class LoginController extends Controller
                 return redirect()->route('market.dashboard');
             }
         }
+
+        return redirect()->back()->with([
+            'err_message' => 'Wrong email/password'
+        ]);
     }
 }

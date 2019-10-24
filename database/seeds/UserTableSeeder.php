@@ -21,6 +21,7 @@ class UserTableSeeder extends Seeder
         $tenant_permission = Permission::create(['name' => 'manage market stores']);
 
         $admin_role->givePermissionTo($admin_permission);
+        $admin_permission->assignRole($admin_role);
         $tenant_role->givePermissionTo($tenant_permission);
 
         $admin_user = User::create([

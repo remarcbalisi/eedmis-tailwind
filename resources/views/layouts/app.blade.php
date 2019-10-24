@@ -48,7 +48,31 @@
             </div>
         </nav>
 
-        <div class="w-full bg-gray-500">
+        <div class="{{\Request::route()->getName() == 'login' ? 'w-full' : 'flex'}} bg-gray-500">
+            @if( auth()->user() )
+            <div class="h-screen bg-white w-1/6 p-10">
+                <ul>
+                    <li class="border-b-2">
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li class="mt-4 border-b-2">
+                        <a class="hover:text-teal-500" href="#">Market</a>
+                        <ul class="ml-2 text-gray-600">
+                            <li class="hover:text-teal-500">
+                                <a href="#">Departments</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="mt-4">
+                        <a href="#">Slaughterhouse</a>
+                    </li>
+                    <li class="mt-4">
+                        <a href="#">IBJT</a>
+                    </li>
+                </ul>
+            </div>
+            @endif
+
             @yield('content')
         </div>
     </body>
