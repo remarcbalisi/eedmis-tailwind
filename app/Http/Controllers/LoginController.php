@@ -34,4 +34,10 @@ class LoginController extends Controller
             'err_message' => 'Wrong email/password'
         ]);
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
 }

@@ -4,6 +4,7 @@ Route::get('/', function () {
 });
 
 Route::get('login', 'LoginController@login')->name('login')->middleware('guest');
+Route::get('logout', 'LoginController@logout')->name('logout')->middleware('auth');
 Route::post('login', 'LoginController@authenticate')->name('authenticate');
 
 Route::name('admin.')->group(function (){
