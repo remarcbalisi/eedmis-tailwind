@@ -15,7 +15,14 @@ Route::name('admin.')->group(function (){
 
         //Dashboard
         Route::resource('dashboard', 'DashboardController');
-        Route::resource('department', 'DepartmentController');
+
+        Route::group([
+            'prefix' => 'market',
+        ], function () {
+            Route::name('market.')->group(function() {
+                Route::resource('department', 'DepartmentController');
+            });
+        });
 
     });
 });

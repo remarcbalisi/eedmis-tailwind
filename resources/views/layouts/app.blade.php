@@ -61,7 +61,7 @@
                         <a class="hover:text-teal-500" href="#">Market</a>
                         <ul class="ml-2 text-gray-600">
                             <li class="hover:text-teal-500">
-                                <a href="#">Departments</a>
+                                <a href="{{route('admin.market.department.index')}}">Departments</a>
                             </li>
                         </ul>
                     </li>
