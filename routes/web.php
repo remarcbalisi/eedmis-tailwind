@@ -9,12 +9,20 @@ Route::post('login', 'LoginController@authenticate')->name('authenticate');
 
 Route::name('admin.')->group(function (){
     Route::group([
-        'middleware' => ['auth:web', 'permission:edit all'],
+        'middleware' => ['auth:web', 'role:admin'],
         'namespace' => 'Admin'
     ], function () {
 
         //Dashboard
         Route::resource('dashboard', 'DashboardController');
+
+        Route::group([
+            'prefix' => 'market',
+        ], function () {
+            Route::name('market.')->group(function() {
+                Route::resource('department', 'Market\MarketDepartmentController');
+            });
+        });
 
     });
 });
