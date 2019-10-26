@@ -20,7 +20,7 @@ Route::name('admin.')->group(function (){
             'prefix' => 'market',
         ], function () {
             Route::name('market.')->group(function() {
-                Route::resource('department', 'DepartmentController');
+                Route::resource('department', 'Market\MarketDepartmentController');
             });
         });
 

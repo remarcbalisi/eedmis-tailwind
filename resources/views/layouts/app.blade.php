@@ -50,9 +50,9 @@
             </div>
         </nav>
 
-        <div class="{{\Request::route()->getName() == 'login' ? 'w-full' : 'flex'}} bg-gray-500">
+        <div class="{{\Request::route()->getName() == 'login' ? 'w-full' : 'flex'}}">
             @if( auth()->user() )
-            <div class="h-screen bg-white w-1/6 p-10">
+            <div class="bg-white h-screen p-10 shadow-lg w-1/6">
                 <ul>
                     <li class="border-b-2">
                         <a href="#">Dashboard</a>
