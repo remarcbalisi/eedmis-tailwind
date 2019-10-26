@@ -5,9 +5,11 @@
         <div class="inline-block">
             <h1 class="mt-10 text-2xl">
                 Stall List
-                <button class="bg-blue-500 border-b-4 border-blue-700 font-bold hover:bg-blue-400 hover:border-blue-500 px-4 rounded text-sm text-white">
-                    Add Stall
-                </button>
+                <a href="{{route('admin.market.stall.create')}}">
+                    <button class="bg-blue-500 border-b-4 border-blue-700 font-bold hover:bg-blue-400 hover:border-blue-500 px-4 rounded text-sm text-white">
+                        Add Stall
+                    </button>
+                </a>
             </h1>
             <table class="m-auto table-fixed w-full">
                 <thead>
