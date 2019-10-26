@@ -9,6 +9,15 @@
             @if( session('success_msg') )
                 <p class="bg-green-400 p-2 rounded">{{session('success_msg')}}</p>
             @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li class="bg-red-400 p-2 rounded">{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="{{route('admin.market.stall.store')}}" method="POST" class="w-full max-w-sm">
                 @csrf
                 <div class="flex items-center border-b border-b-2 border-teal-500 py-2">

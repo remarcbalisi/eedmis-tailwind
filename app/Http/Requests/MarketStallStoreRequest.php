@@ -24,7 +24,7 @@ class MarketStallStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'stall_number' => 'required'
+            'stall_number' => 'required|unique:market_stalls'
         ];
     }
 }
