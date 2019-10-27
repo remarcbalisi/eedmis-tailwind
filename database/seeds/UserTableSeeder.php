@@ -31,7 +31,15 @@ class UserTableSeeder extends Seeder
             'password' => bcrypt('secret'),
         ]);
 
+        $tenant_user = User::create([
+            'first_name' => 'Jane',
+            'last_name' => 'Doe',
+            'email' => 'janedoe@gmail.com',
+            'password' => bcrypt('secret'),
+        ]);
+
         $admin_user->givePermissionTo($admin_permission);
         $admin_user->assignRole('admin');
+        $tenant_user->assignRole('tenant');
     }
 }

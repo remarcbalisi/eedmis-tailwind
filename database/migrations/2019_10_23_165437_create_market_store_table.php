@@ -16,10 +16,11 @@ class CreateMarketStoreTable extends Migration
         Schema::create('market_stores', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->longText('address')->nullable();
             $table->boolean('is_active')->default(true);
-            $table->unsignedBigInteger('tenant_id');
-            $table->unsignedBigInteger('market_department_id');
-            $table->unsignedBigInteger('stall_id');
+            $table->unsignedBigInteger('tenant_id')->nullable();
+            $table->unsignedBigInteger('market_department_id')->nullable();
+            $table->unsignedBigInteger('stall_id')->nullable();
 
             $table->foreign('tenant_id')->references('id')->on('users');
             $table->foreign('market_department_id')->references('id')->on('market_departments');
