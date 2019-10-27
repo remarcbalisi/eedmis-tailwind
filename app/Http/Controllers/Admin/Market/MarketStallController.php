@@ -28,4 +28,10 @@ class MarketStallController extends Controller
             'success_msg' => 'Successfully added ' . $new_stall->stall_number,
         ]);
     }
+
+    public function destroy(MarketStall $stall)
+    {
+        $stall->delete();
+        return redirect()->back();
+    }
 }

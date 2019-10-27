@@ -23,9 +23,16 @@
                     <tr>
                         <td class="border px-4 py-2">{{$market_stall->stall_number}}</td>
                         <td class="border px-4 py-2">
-                            <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                            <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold text-sm px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
                                 View
                             </button>
+                            <form action="{{route('admin.market.stall.destroy', ['stall'=>$market_stall])}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 hover:bg-red-400 text-white font-bold text-sm px-4 border-b-4 border-red-700 hover:border-red-500 rounded">
+                                    Delete
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
