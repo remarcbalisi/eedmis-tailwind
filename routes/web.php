@@ -21,6 +21,8 @@ Route::name('admin.')->group(function (){
         ], function () {
             Route::name('market.')->group(function() {
                 Route::resource('department', 'Market\MarketDepartmentController');
+                Route::resource('stall', 'Market\MarketStallController');
+                Route::resource('store', 'Market\MarketStoreController');
             });
         });
 
