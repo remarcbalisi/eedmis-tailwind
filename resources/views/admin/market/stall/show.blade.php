@@ -17,7 +17,7 @@
 
         <div class="w-full mt-10">
             @if( $active_stall = $stall->stores()->where('is_active', true)->first() )
-                <h2>Active Stall</h2>
+                <h2>Active Store</h2>
                 <table class="w-full">
                     <thead>
                     <tr>
@@ -39,7 +39,7 @@
             @endif
 
             @if( count($inactive_stalls = $stall->stores()->where('is_active', false)->get()) )
-                    <h2 class="mt-10">Previous Stalls</h2>
+                    <h2 class="mt-10">Previous Stores</h2>
                     <table class="w-full">
                         <thead>
                         <tr>
