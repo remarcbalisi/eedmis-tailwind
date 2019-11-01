@@ -43,12 +43,44 @@
                 <div>
                     @if( !auth()->user() )
                     <a href="{{route('login')}}" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Login</a>
+                    @else
+                    <a href="{{route('logout')}}" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Logout</a>
                     @endif
                 </div>
             </div>
         </nav>
 
-        <div class="w-full bg-gray-500">
+        <div class="{{\Request::route()->getName() == 'login' ? 'w-full' : 'flex'}}">
+            @if( auth()->user() )
+            <div class="bg-white h-screen p-10 shadow-lg w-1/6">
+                <ul>
+                    <li class="border-b-2">
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li class="mt-4 border-b-2">
+                        <a class="hover:text-teal-500" href="#">Market</a>
+                        <ul class="ml-2 text-gray-600">
+                            <li class="hover:text-teal-500">
+                                <a href="{{route('admin.market.department.index')}}">Departments</a>
+                            </li>
+                            <li class="hover:text-teal-500">
+                                <a href="{{route('admin.market.stall.index')}}">Stalls</a>
+                            </li>
+                            <li class="hover:text-teal-500">
+                                <a href="{{route('admin.market.store.index')}}">Stores</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="mt-4">
+                        <a href="#">Slaughterhouse</a>
+                    </li>
+                    <li class="mt-4">
+                        <a href="#">IBJT</a>
+                    </li>
+                </ul>
+            </div>
+            @endif
+
             @yield('content')
         </div>
     </body>

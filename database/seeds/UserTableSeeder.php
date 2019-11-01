@@ -21,6 +21,7 @@ class UserTableSeeder extends Seeder
         $tenant_permission = Permission::create(['name' => 'manage market stores']);
 
         $admin_role->givePermissionTo($admin_permission);
+        $admin_permission->assignRole($admin_role);
         $tenant_role->givePermissionTo($tenant_permission);
 
         $admin_user = User::create([
@@ -30,6 +31,15 @@ class UserTableSeeder extends Seeder
             'password' => bcrypt('secret'),
         ]);
 
+        $tenant_user = User::create([
+            'first_name' => 'Jane',
+            'last_name' => 'Doe',
+            'email' => 'janedoe@gmail.com',
+            'password' => bcrypt('secret'),
+        ]);
+
         $admin_user->givePermissionTo($admin_permission);
+        $admin_user->assignRole('admin');
+        $tenant_user->assignRole('tenant');
     }
 }
