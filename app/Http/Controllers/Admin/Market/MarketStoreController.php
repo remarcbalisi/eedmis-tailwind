@@ -29,8 +29,28 @@ class MarketStoreController extends Controller
 
     public function store(MarketStoreStoreRequest $request)
     {
-        $new_store = MarketStore::create($request->all());
-        $success_msg = "Successfully added " . $new_store->name;
+//        MarketStore::where([
+//            'stall_id' => $request->stall_id,
+//            'is_active' => true,
+//        ])
+//            ->then(function ($query) use ($request) {
+//                if( count($query) )
+//                {
+//                    $error_msg = $query->name . " is still active";
+//                    return redirect()->back()->withErrors(compact('error_msg'));
+//                }
+//            });
+
+        $new_store = MarketStore::firstOrCreate(
+            [
+                'stall_id' => $request->stall_id,
+                'is_active' => true,
+            ],
+            [
+                $request->except(['stall_id'])
+            ]
+        );
+        $success_msg = $new_store->wasRecentlyCreated ? "Successfully added " . $new_store->name : $new_store->name . " There's an active store in this selected stall";
         return redirect()->back()->with(compact('new_store', 'success_msg'));
     }
 }
