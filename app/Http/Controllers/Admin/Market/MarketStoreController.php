@@ -29,18 +29,6 @@ class MarketStoreController extends Controller
 
     public function store(MarketStoreStoreRequest $request)
     {
-//        MarketStore::where([
-//            'stall_id' => $request->stall_id,
-//            'is_active' => true,
-//        ])
-//            ->then(function ($query) use ($request) {
-//                if( count($query) )
-//                {
-//                    $error_msg = $query->name . " is still active";
-//                    return redirect()->back()->withErrors(compact('error_msg'));
-//                }
-//            });
-
         $new_store = MarketStore::firstOrCreate(
             [
                 'stall_id' => $request->stall_id,
