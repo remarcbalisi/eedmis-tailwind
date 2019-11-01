@@ -34,12 +34,18 @@
                             <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold text-sm px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
                                 View
                             </button>
-                            <button class="bg-orange-500 hover:bg-orange-400 text-white font-bold text-sm px-4 border-b-4 border-orange-700 hover:border-orange-500 rounded">
-                                Edit
-                            </button>
-                            <button class="bg-red-500 hover:bg-red-400 text-white font-bold text-sm px-4 border-b-4 border-red-700 hover:border-red-500 rounded">
-                                Delete
-                            </button>
+                            <a href="{{route('admin.market.store.edit', ['store' => $store])}}">
+                                <button class="bg-orange-500 hover:bg-orange-400 text-white font-bold text-sm px-4 border-b-4 border-orange-700 hover:border-orange-500 rounded">
+                                    Edit
+                                </button>
+                            </a>
+                            <form action="{{route('admin.market.store.destroy', ["store" => $store])}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 hover:bg-red-400 text-white font-bold text-sm px-4 border-b-4 border-red-700 hover:border-red-500 rounded">
+                                    Delete
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
