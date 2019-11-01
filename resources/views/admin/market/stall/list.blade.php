@@ -23,9 +23,11 @@
                     <tr>
                         <td class="border px-4 py-2">{{$market_stall->stall_number}}</td>
                         <td class="border px-4 py-2">
-                            <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold text-sm px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                                View
-                            </button>
+                            <a href="{{(route('admin.market.stall.show', ['stall'=>$market_stall]))}}">
+                                <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold text-sm px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                                    View
+                                </button>
+                            </a>
                             <form action="{{route('admin.market.stall.destroy', ['stall'=>$market_stall])}}" method="POST">
                                 @csrf
                                 @method('DELETE')

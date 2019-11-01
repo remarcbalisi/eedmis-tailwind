@@ -16,6 +16,11 @@ class MarketStallController extends Controller
         ]);
     }
 
+    public function show(MarketStall $stall)
+    {
+        return view('admin.market.stall.show')->with(compact('stall'));
+    }
+
     public function create()
     {
         return view('admin.market.stall.create');
