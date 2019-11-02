@@ -28,6 +28,11 @@ class MarketStoreController extends Controller
         ]);
     }
 
+    public function show(MarketStore $store)
+    {
+        return view('admin.market.store.show')->with(compact('store'));
+    }
+
     public function store(MarketStoreStoreRequest $request)
     {
         $new_store = MarketStore::firstOrCreate(

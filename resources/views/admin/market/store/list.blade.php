@@ -31,9 +31,11 @@
                         <td class="border px-4 py-2">{{$store->department->name ?? 'n/a'}}</td>
                         <td class="border px-4 py-2">{{$store->stall->stall_number ?? 'Sidewalk Vendor'}}</td>
                         <td class="border px-4 py-2">
-                            <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold text-sm px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                                View
-                            </button>
+                            <a href="{{route('admin.market.store.show', ['store'=>$store])}}">
+                                <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold text-sm px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                                    View
+                                </button>
+                            </a>
                             <a href="{{route('admin.market.store.edit', ['store' => $store])}}">
                                 <button class="bg-orange-500 hover:bg-orange-400 text-white font-bold text-sm px-4 border-b-4 border-orange-700 hover:border-orange-500 rounded">
                                     Edit
